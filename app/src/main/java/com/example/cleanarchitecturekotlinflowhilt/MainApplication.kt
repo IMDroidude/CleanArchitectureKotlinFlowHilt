@@ -1,10 +1,11 @@
 package com.example.cleanarchitecturekotlinflowhilt
 
 import android.app.Application
+import com.example.core_android.base.PBApplication
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class MainApplication : Application() {
+class MainApplication : PBApplication() {
 
     override fun onCreate() {
         super.onCreate()

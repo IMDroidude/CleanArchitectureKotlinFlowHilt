@@ -8,6 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : PBActivity() {
+    ///private val binding by viewBinding<
     private val mViewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,6 +18,10 @@ class MainActivity : PBActivity() {
         doInScope {
             mViewModel.test()
         }
+
+        /*mViewModel.mLiveData.observe(this,{
+
+        })*/
 
     }
 }
