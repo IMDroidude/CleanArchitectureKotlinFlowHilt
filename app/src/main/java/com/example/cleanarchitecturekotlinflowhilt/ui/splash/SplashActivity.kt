@@ -18,18 +18,13 @@ class SplashActivity : PBActivity(R.layout.activity_splash) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        /*mViewModel.splashAction.observe(this,{
-          when(it){
-              is SplashViewModel.SplashAction.ScreenToView -> {
-                  startActivity(Intent(this@SplashActivity,it.className))
-              }
-              is SplashViewModel.SplashAction.ShowToast -> {
-
-              }
-          }
-        })*/
-        mViewModel.screenSelectionUsingFlow().observe(this,{
-            startActivity(Intent(this@SplashActivity,it.java))
+        mViewModel.screenToView.observe(this,{
+            when(it){
+                is SplashViewModel.SplashAction.ScreenToView -> {
+                    startActivity(Intent(this@SplashActivity,it.className))
+                }
+                is SplashViewModel.SplashAction.ShowToast -> { }
+            }
         })
     }
 }

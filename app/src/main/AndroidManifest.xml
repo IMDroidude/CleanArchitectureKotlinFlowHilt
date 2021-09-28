@@ -3,6 +3,7 @@
     package="com.example.cleanarchitecturekotlinflowhilt">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MainApplication"
         android:allowBackup="true"
@@ -11,7 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.CleanArchitectureKotlinFlowHilt">
-        <activity android:name=".ui.splash.SplashActivity"
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="true"
+            android:label="@string/title_activity_home" />
+        <activity
+            android:name=".ui.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,9 +27,7 @@
         </activity>
         <activity
             android:name=".main.MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true"></activity>
     </application>
 
 </manifest>

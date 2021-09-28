@@ -5,6 +5,7 @@ import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import androidx.lifecycle.viewModelScope
 import com.example.cleanarchitecturekotlinflowhilt.main.MainActivity
+import com.example.cleanarchitecturekotlinflowhilt.ui.home.HomeActivity
 import com.example.core.prefs.PrefStore
 import com.example.core_android.base.PBViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,15 +18,15 @@ class SplashViewModel @Inject constructor(
     private val prefStore: PrefStore
 ):PBViewModel() {
 
-    val splashAction:LiveData<SplashAction> = liveData {
-        emit(SplashAction.ScreenToView(MainActivity::class.java))
-    }
-
-    fun screenSelectionUsingFlow():LiveData<KClass<*>> = flow {
-        kotlinx.coroutines.delay(2000)
-        emit(MainActivity::class)
+    val screenToView:LiveData<SplashAction> = flow {
+        kotlinx.coroutines.delay(1000)
+        emit(SplashAction.ScreenToView(HomeActivity::class.java))
     }.asLiveData(viewModelScope.coroutineContext)
 
+    /*fun screenSelectionUsingFlow():LiveData<KClass<*>> = flow {
+        kotlinx.coroutines.delay(2000)
+        emit(HomeActivity::class)
+    }.asLiveData(viewModelScope.coroutineContext)*/
 
     sealed class SplashAction {
         class ScreenToView(val className: Class<*>) : SplashAction()
